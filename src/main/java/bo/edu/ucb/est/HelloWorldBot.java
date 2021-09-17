@@ -18,14 +18,14 @@ public class HelloWorldBot extends TelegramLongPollingBot {
     private SendMessage mensaje;
     private int a;
     private int b;
-    private String inicial="Bienvenido al Bot calculadora.\nSeleccione una de las siguientes opciones:\n1. Sumar dos números\n2. Calcular serie de fibonacci";
+    private String inicial="Bienvenido al Bot calculadora.\nSeleccione una de las siguientes opciones:\n1. Sumar dos nÃºmeros\n2. Calcular serie de fibonacci";
 
     public HelloWorldBot(SendMessage mensaje){
         this.mensaje=mensaje;
     }
     @Override
     public String getBotToken() {
-        return "1912102992:AAGd09tbp_GihHDtja4fXE92GXRUP_QIptk";
+        return "";
     }
 
     public void error(){
@@ -51,23 +51,23 @@ public class HelloWorldBot extends TelegramLongPollingBot {
                 }
 
             }else if(mensaje.getText().equals(inicial) && update.getMessage().getText().equals("1")){
-            mensaje.setText("Ingrese el primer número:");
+            mensaje.setText("Ingrese el primer nÃºmero:");
                 try {
                     execute(mensaje); // Envia el mensaje
                 } catch (TelegramApiException e) {
                     mensaje.setText("");
                 }
-            }else if(mensaje.getText().equals("Ingrese el primer número:")){
+            }else if(mensaje.getText().equals("Ingrese el primer nÃºmero:")){
                 try {
                     a=Integer.parseInt(update.getMessage().getText());
-                    mensaje.setText("Ingrese el segundo número:");
+                    mensaje.setText("Ingrese el segundo nÃºmero:");
                     execute(mensaje); // Envia el mensaje
                 } catch (TelegramApiException e) {
                     error();
                 }catch (Exception e){
                     error();
                 }
-            }else if(mensaje.getText().equals("Ingrese el segundo número:")){
+            }else if(mensaje.getText().equals("Ingrese el segundo nÃºmero:")){
                 try {
                     b=Integer.parseInt(update.getMessage().getText());
                     mensaje.setText("La suma es: "+ (a+b));
@@ -80,7 +80,7 @@ public class HelloWorldBot extends TelegramLongPollingBot {
                     error();
                 }
             }else if(mensaje.getText().equals(inicial) && update.getMessage().getText().equals("2")){
-                mensaje.setText("Funcionalidad no implementada, intente otro día");
+                mensaje.setText("Funcionalidad no implementada, intente otro dÃ­a");
                 try {
                     execute(mensaje); // Envia el mensaje
                     mensaje.setText(inicial);
